@@ -1,0 +1,13 @@
+database:
+  uri: mongodb+srv://EnTing:Abc12345678*@cluster0.rjh032q.mongodb.net/?retryWrites=true&w=majority
+
+googleOAuth:
+  client_id: 869175398-cti3kmpkl43g87t5otbv179n6k9cn0r4.apps.googleusercontent.com
+  client_secret: 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
+  redirect_url: "http://localhost:8080/google/callback"
+  login_url: "http://localhost:8080/google/login"
+  scopes: 
+    - "https://www.googleapis.com/auth/userinfo.email"
+    - "https://www.googleapis.com/auth/userinfo.profile"
+  auth_url: "https://accounts.google.com/o/oauth2/auth"
+  token_url: "https://accounts.google.com/o/oauth2/token"
