@@ -4,6 +4,7 @@ import (
 	"io/ioutil"
 	"gopkg.in/yaml.v2"
 	"log"
+	
 )
 
 type Config struct {
@@ -18,19 +19,19 @@ type Config struct {
 		AuthURL	string `yaml:"auth_url"`
 		TokenURL	string `yaml:"token_url"`
 		LoginURL	string `yaml:"login_url"`
-		TokenExpiresIn int `yaml:"token_expires_in"`
 	} `yaml:"googleOAuth"`
+	Auth struct {
+		SecretKey string `yaml:"secret_key"`
+		RefreshTokenSecretKey string `yaml:"refresh_token_secret_key"`
+	} `yaml:"auth"`
 }
 
 func ReadConfig() (config *Config) {
-	// Read the config.yaml file
 	configFile, err := ioutil.ReadFile("config.yaml")
 	if err != nil {
 		log.Fatalf("Failed to read config file: %v", err)
 		return nil
 	}
-
-	// Parse the YAML data into the Config struct
 	err = yaml.Unmarshal(configFile, &config)
 	if err != nil {
 		log.Fatalf("Failed to parse config file: %v", err)
