@@ -2,27 +2,29 @@ package model
 
 import (
 	"io/ioutil"
-	"gopkg.in/yaml.v2"
 	"log"
-	
+
+	"gopkg.in/yaml.v2"
 )
 
 type Config struct {
 	Database struct {
-		URI     string `yaml:"uri"`
+		URI string `yaml:"uri"`
 	} `yaml:"database"`
 	GoogleOAuth struct {
-		ClientID     string `yaml:"client_id"`
-		ClientSecret     string `yaml:"client_secret"`
-		RedirectUrl string `yaml:"redirect_url"`
-		Scopes	[]string `yaml:"scopes"`
-		AuthURL	string `yaml:"auth_url"`
-		TokenURL	string `yaml:"token_url"`
-		LoginURL	string `yaml:"login_url"`
+		ClientID     string   `yaml:"client_id"`
+		ClientSecret string   `yaml:"client_secret"`
+		RedirectUrl  string   `yaml:"redirect_url"`
+		Scopes       []string `yaml:"scopes"`
+		AuthURL      string   `yaml:"auth_url"`
+		TokenURL     string   `yaml:"token_url"`
+		LoginURL     string   `yaml:"login_url"`
 	} `yaml:"googleOAuth"`
 	Auth struct {
-		SecretKey string `yaml:"secret_key"`
-		RefreshTokenSecretKey string `yaml:"refresh_token_secret_key"`
+		PrivateKeyPemFile           string `yaml:"private_key_pem_file"`
+		TkPublicKey            string `yaml:"tk_public_key"`
+		RefreshTokenPrivateKey string `yaml:"refresh_tk_private_key_pem_file"`
+		RefreshTokenPublicKey  string `yaml:"refresh_tk_public_key"`
 	} `yaml:"auth"`
 }
 
